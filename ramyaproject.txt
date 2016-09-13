@@ -1,0 +1,212 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Ramyaproject
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int Pikachu = 6;
+            int Squirtle = 5;
+            int Charmander = 5;
+            float Totalamount = 0;
+            int count = 0;
+            float discount = 0;
+            float finalamount = 0;
+
+        start:
+            Console.WriteLine("Welcome to Pokemon Shop");
+
+            Console.WriteLine("Enter Quality of Pikachu");
+            int Pikachucount = Convert.ToInt16(Console.ReadLine());
+            Console.WriteLine("Enter Quality of Squirtle");
+            int Squirtlecount = Convert.ToInt16(Console.ReadLine());
+            Console.WriteLine("Enter Quality of Charmander");
+            int Charmandercount = Convert.ToInt16(Console.ReadLine());
+            count = Pikachucount + Squirtlecount + Charmandercount;
+
+            if (count == 3)
+            {
+
+                if ((Pikachucount == 1) && (Squirtlecount == 1) && (Charmandercount == 1))
+                {
+                    Totalamount = Pikachu + Squirtle + Charmander;
+                    discount = (Totalamount * 20 / 100);
+                    finalamount = Totalamount - discount;
+                }
+                else if ((Pikachucount == 2) && (Squirtlecount == 1) && (Charmandercount == 0))
+                {
+                    Totalamount = (Pikachu + Squirtle);
+
+
+                    discount = Totalamount / 10;
+                    finalamount = Totalamount - discount + Pikachu;
+                }
+                else if ((Pikachucount == 1) && (Squirtlecount == 2) && (Charmandercount == 0))
+                {
+                    Totalamount = (Pikachu + Squirtle);
+
+
+                    discount = Totalamount / 10;
+                    finalamount = Totalamount - discount + Squirtle;
+                }
+
+                else if ((Pikachucount == 1) && (Squirtlecount == 0) && (Charmandercount == 2))
+                {
+                    Totalamount = (Pikachu + Charmander);
+
+
+                    discount = Totalamount / 10;
+                    finalamount = Totalamount - discount + Charmander;
+                }
+                else if ((Pikachucount == 2) && (Squirtlecount == 0) && (Charmandercount == 1))
+                {
+                    Totalamount = (Pikachu + Charmander);
+
+
+                    discount = Totalamount / 10;
+                    finalamount = Totalamount - discount + Pikachu;
+                }
+                else if ((Pikachucount == 0) && (Squirtlecount == 2) && (Charmandercount == 1))
+                {
+                    Totalamount = (Squirtle + Charmander);
+
+
+                    discount = Totalamount / 10;
+                    finalamount = Totalamount - discount + Squirtle;
+                }
+                else if ((Pikachucount == 0) && (Squirtlecount == 1) && (Charmandercount == 2))
+                {
+                    Totalamount = (Squirtle + Charmander);
+
+
+                    discount = Totalamount / 10;
+                    finalamount = Totalamount - discount + Charmander;
+                }
+
+                else
+                {
+                    Totalamount = (Pikachucount * Pikachu) + (Squirtlecount * Squirtle) + (Charmandercount * Charmander);
+                    discount = Totalamount / 10;
+                    finalamount = Totalamount - discount;
+                }
+
+            }
+
+            else if (count == 2)
+            {
+                if (Pikachucount == 2)
+                {
+                    finalamount = Pikachucount * Pikachu;
+                }
+                else if (Squirtlecount == 2)
+                {
+                    finalamount = Squirtlecount * Squirtle;
+                }
+                else if (Charmandercount == 2)
+                {
+                    finalamount = Charmandercount * Charmander;
+                }
+
+                else
+                {
+                    Totalamount = (Pikachucount * Pikachu) + (Squirtlecount * Squirtle) + (Charmandercount * Charmander);
+                    discount = Totalamount / 10;
+                    finalamount = Totalamount - discount;
+                }
+
+
+            }
+
+            else if (count > 3)
+            {
+                if (Pikachucount == 2 && Squirtlecount == 1 && Charmandercount == 1)
+                {
+
+                    Totalamount = (Pikachu + Squirtle + Charmander);
+                    discount = Pikachucount*(Totalamount * 10 / 100);
+                    finalamount = Totalamount - discount + ((Pikachucount-1)*Pikachu);
+                }
+
+                else if (Pikachucount == 1 && Squirtlecount == 2 && Charmandercount == 1)
+                {
+
+                    Totalamount = (Pikachu + Squirtle + Charmander);
+                    discount = Squirtlecount*(Totalamount * 10 / 100);
+                    finalamount = Totalamount - discount + ((Squirtlecount - 1) * Squirtle);
+                }
+                else if (Pikachucount == 1 && Squirtlecount == 1 && Charmandercount == 2)
+                {
+
+                    Totalamount = (Pikachu + Squirtle + Charmander);
+                    discount = Charmandercount*(Totalamount * 10 / 100);
+                    finalamount = Totalamount - discount + ((Charmandercount - 1) * Charmander);
+                }
+
+                else if (Pikachucount == Squirtlecount || Squirtlecount == Charmandercount || Pikachucount == Charmandercount)
+                {
+                    if (Pikachucount.Equals(Squirtlecount))
+                    {
+                        Totalamount = (Pikachu + Squirtle );
+                        discount = (Totalamount * 10 / 100);
+                        finalamount =Pikachucount*( Totalamount - discount);
+                    }
+                    else if (Charmandercount.Equals( Squirtlecount ))
+                    {
+                        Totalamount = (Charmander + Squirtle);
+                        discount = Charmandercount * (Totalamount * 10 / 100);
+                        finalamount = Charmandercount * (Totalamount - discount);
+                    }
+                    else if(Charmandercount.Equals(Pikachucount) )
+                    {
+                        Totalamount = (Pikachu + Charmander);
+                        discount = Pikachucount * (Totalamount * 10 / 100);
+                        finalamount = Pikachucount * (Totalamount - discount);
+                    }
+                    else if (Pikachucount.Equals(Squirtlecount).Equals(Charmandercount))
+                    {
+
+                        Totalamount = (Pikachu + Charmander+Squirtle);
+                        discount = Pikachucount * (Totalamount * 10 / 100);
+                        finalamount = Pikachucount * (Totalamount - discount);
+                    }
+                }
+                
+            }
+
+            else
+            {
+                finalamount = (Pikachucount * Pikachu) + (Squirtlecount * Squirtle) + (Charmandercount * Charmander);
+
+            }
+
+
+
+            Console.WriteLine("Customer has to pay : {0}", finalamount);
+
+            Console.WriteLine("Do you wish to continue yes or no");
+            string wish = (Console.ReadLine());
+            switch (wish.ToLower())
+            {
+                case "yes":
+
+                    goto start;
+
+                case "no":
+                    Console.WriteLine("Thank you for shopping");
+                    break;
+                default:
+                    Console.WriteLine("Invalid selection");
+                    goto start;
+            }
+            Console.Read();
+
+
+        }
+    }
+}
